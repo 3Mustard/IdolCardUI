@@ -9,6 +9,10 @@ import { AddEditGroupComponent } from './IdolGroup/add-edit-group/add-edit-group
 import { IdolCardComponent } from './idol-card/idol-card.component';
 import { ShowCardComponent } from './IdolCard/show-card/show-card.component';
 import { AddEditCardComponent } from './IdolCard/add-edit-card/add-edit-card.component';
+import { SharedService } from './shared.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,9 +26,12 @@ import { AddEditCardComponent } from './IdolCard/add-edit-card/add-edit-card.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
