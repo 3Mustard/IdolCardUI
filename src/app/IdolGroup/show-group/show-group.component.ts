@@ -20,21 +20,27 @@ export class ShowGroupComponent implements OnInit {
     this.refreshGroupList();
   }
 
-  addClick(){
+  addClick():void{
     this.group={
-      IdolGroupId:0,
-      IdolGroupName:""
+      GroupId:0,
+      GroupName:""
     }
     this.ModalTitle="Add an Idol Group";
     this.ActivateAddEditGroupComp=true;
   }
 
-  closeClick(){
+  editClick(groupInfo):void{
+    this.group=groupInfo;
+    this.ModalTitle="Edit Idol Group " + this.group.GroupName;
+    this.ActivateAddEditGroupComp=true;
+  }
+
+  closeClick():void{
     this.ActivateAddEditGroupComp=false;
     this.refreshGroupList();
   }
 
-  refreshGroupList(){
+  refreshGroupList():void{
     this.service.getIdolGroupList().subscribe(data => {
       this.GroupList=data;
     })
