@@ -27,4 +27,28 @@ export class SharedService {
     return this.http.delete(this.APIUrl+'/IdolGroup',val);
   }
 
+  getIdolCardList():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/IdolCard');
+  }
+
+  addIdolCard(val:any){
+    return this.http.post(this.APIUrl+'/IdolCard',val);
+  }
+
+  updateIdolCard(val:any){
+    return this.http.put(this.APIUrl+'/IdolCard',val);
+  }
+
+  deleteIdolCard(val:any){
+    return this.http.delete(this.APIUrl+'/IdolCard',val);
+  }
+
+  UploadPhoto(val:any)
+  {
+    return this.http.post(this.APIUrl+'/IdolCard/SaveFile',val);
+  }
+
+  getAllGroupNames():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/IdolCard/GetAllGroupNames');
+  }
 }
