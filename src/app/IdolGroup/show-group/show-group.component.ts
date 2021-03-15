@@ -12,7 +12,25 @@ export class ShowGroupComponent implements OnInit {
 
   GroupList:any=[];
 
+  ModalTitle:string;
+  ActivateAddEditGroupComp:boolean=false;
+  group:any;
+
   ngOnInit(): void {
+    this.refreshGroupList();
+  }
+
+  addClick(){
+    this.group={
+      IdolGroupId:0,
+      IdolGroupName:""
+    }
+    this.ModalTitle="Add an Idol Group";
+    this.ActivateAddEditGroupComp=true;
+  }
+
+  closeClick(){
+    this.ActivateAddEditGroupComp=false;
     this.refreshGroupList();
   }
 
