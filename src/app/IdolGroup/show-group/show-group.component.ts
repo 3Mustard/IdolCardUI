@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-show-group',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowGroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  GroupList:any=[];
 
   ngOnInit(): void {
+    this.refreshGroupList();
   }
 
+  refreshGroupList(){
+    this.service.getIdolGroupList().subscribe(data => {
+      this.GroupList=data;
+    })
+  }
 }
