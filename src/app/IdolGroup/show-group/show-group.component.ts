@@ -21,29 +21,29 @@ export class ShowGroupComponent implements OnInit {
   }
 
   addClick(): void {
-    this.group={
-      GroupId:0,
-      GroupName:""
+    this.group= {
+      GroupId: 0,
+      GroupName: ""
     }
-    this.ModalTitle="Add an Idol Group";
-    this.ActivateAddEditGroupComp=true;
+    this.ModalTitle = "Add an Idol Group";
+    this.ActivateAddEditGroupComp = true;
   }
 
   editClick(groupInfo): void {
-    this.group=groupInfo;
-    this.ModalTitle="Edit Idol Group " + this.group.GroupName;
-    this.ActivateAddEditGroupComp=true;
+    this.group = groupInfo;
+    this.ModalTitle = "Edit Idol Group " + this.group.GroupName;
+    this.ActivateAddEditGroupComp = true;
   }
 
   closeClick(): void {
-    this.ActivateAddEditGroupComp=false;
+    this.ActivateAddEditGroupComp = false;
     this.refreshGroupList();
   }
 
   refreshGroupList():void{
     this.service.getIdolGroupList().subscribe(data => {
-      this.GroupList=data;
-    })
+      this.GroupList = data;
+    });
   }
 
 }

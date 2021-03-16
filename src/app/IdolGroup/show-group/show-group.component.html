@@ -38,13 +38,13 @@ data-backdrop="static" data-keyboard="false"
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let dataItem of GroupList">
-      <td>{{dataItem.GroupId}}</td>
-      <td>{{dataItem.GroupName}}</td>
+    <tr *ngFor="let groupInfo of GroupList">
+      <td>{{groupInfo.GroupId}}</td>
+      <td>{{groupInfo.GroupName}}</td>
       <td>
         <button type="button" class="btn btn-light mr-1"
         data-toggle="modal" data-target="#exampleModal"
-        (click)="editClick(dataItem)"
+        (click)="editClick(groupInfo)"
         data-backdrop="static" data-keyboard="false"
         >
           Edit

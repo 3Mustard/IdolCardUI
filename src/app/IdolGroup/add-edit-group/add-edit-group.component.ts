@@ -15,8 +15,8 @@ export class AddEditGroupComponent implements OnInit {
   GroupName:string;
 
   ngOnInit(): void {
-    this.GroupId=this.group.GroupId;
-    this.GroupName=this.group.GroupName;
+    this.GroupId = this.group.GroupId;
+    this.GroupName = this.group.GroupName;
   }
 
   addGroup():void {
@@ -30,7 +30,14 @@ export class AddEditGroupComponent implements OnInit {
   }
 
   updateGroup(){
+    const groupData = {
+      GroupId: this.GroupId,
+      GroupName: this.GroupName
+    };
 
+    this.service.addIdolGroup(groupData).subscribe(res => {
+      alert(res.toString());
+    });
   }
 
 }
