@@ -13,14 +13,14 @@ export class ShowGroupComponent implements OnInit {
   GroupList:any=[];
 
   ModalTitle:string;
-  ActivateAddEditGroupComp:boolean=false;
+  ActivateAddEditGroupComp: boolean = false;
   group:any;
 
   ngOnInit(): void {
     this.refreshGroupList();
   }
 
-  addClick():void{
+  addClick(): void {
     this.group={
       GroupId:0,
       GroupName:""
@@ -29,13 +29,13 @@ export class ShowGroupComponent implements OnInit {
     this.ActivateAddEditGroupComp=true;
   }
 
-  editClick(groupInfo):void{
+  editClick(groupInfo): void {
     this.group=groupInfo;
     this.ModalTitle="Edit Idol Group " + this.group.GroupName;
     this.ActivateAddEditGroupComp=true;
   }
 
-  closeClick():void{
+  closeClick(): void {
     this.ActivateAddEditGroupComp=false;
     this.refreshGroupList();
   }
@@ -45,4 +45,5 @@ export class ShowGroupComponent implements OnInit {
       this.GroupList=data;
     })
   }
+
 }

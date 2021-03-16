@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-add-edit-group',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AddEditGroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
 
   @Input() group:any;
   GroupId:string;
@@ -16,6 +17,20 @@ export class AddEditGroupComponent implements OnInit {
   ngOnInit(): void {
     this.GroupId=this.group.GroupId;
     this.GroupName=this.group.GroupName;
+  }
+
+  addGroup():void {
+    const groupData = {
+      GroupName: this.GroupName
+    };
+
+    this.service.addIdolGroup(groupData).subscribe(res => {
+      alert(res.toString());
+    });
+  }
+
+  updateGroup(){
+
   }
 
 }
