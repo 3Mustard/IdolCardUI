@@ -24,7 +24,7 @@ export class SharedService {
   }
 
   deleteIdolGroup(val:any){
-    return this.http.delete(this.APIUrl+'/IdolGroup',val);
+    return this.http.delete(this.APIUrl+'/IdolGroup/'+val,val);
   }
 
   getIdolCardList():Observable<any[]>{

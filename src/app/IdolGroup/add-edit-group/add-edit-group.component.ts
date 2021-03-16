@@ -35,7 +35,7 @@ export class AddEditGroupComponent implements OnInit {
       GroupName: this.GroupName
     };
 
-    this.service.addIdolGroup(groupData).subscribe(res => {
+    this.service.updateIdolGroup(groupData).subscribe(res => {
       alert(res.toString());
     });
   }

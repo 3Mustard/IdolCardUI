@@ -35,12 +35,21 @@ export class ShowGroupComponent implements OnInit {
     this.ActivateAddEditGroupComp = true;
   }
 
+  deleteClick(groupId) {
+    if(confirm('Confirm Delete')) {
+      this.service.deleteIdolGroup(groupId).subscribe(data => {
+        alert(data.toString());
+        this.refreshGroupList();
+      });
+    }
+  }
+
   closeClick(): void {
     this.ActivateAddEditGroupComp = false;
     this.refreshGroupList();
   }
 
-  refreshGroupList():void{
+  refreshGroupList(): void {
     this.service.getIdolGroupList().subscribe(data => {
       this.GroupList = data;
     });
