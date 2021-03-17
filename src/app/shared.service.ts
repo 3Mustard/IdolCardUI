@@ -40,7 +40,7 @@ export class SharedService {
   }
 
   deleteIdolCard(val:any){
-    return this.http.delete(this.APIUrl+'/IdolCard',val);
+    return this.http.delete(this.APIUrl+'/IdolCard/'+val,val);
   }
 
   UploadPhoto(val:any)
