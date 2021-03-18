@@ -3,14 +3,20 @@
   <!-- form start -->
   <div class="form-group row" style="width: 60%;">
     <!-- form input 1 -->
-    <label class="col-sm-2 col-form-label">Idol Name</label>
+    <label class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" [(ngModel)]="IdolName" placeholder="Enter Idol Name">
+      <input type="text" class="form-control" [(ngModel)]="IdolName" 
+      placeholder="Enter Idol Name">
     </div>
     <!-- form input 2 -->
-    <label class="col-sm-2 col-form-label">Idol Name</label>
+    <label class="col-sm-2 col-form-label">Group</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" [(ngModel)]="IdolName" placeholder="Enter Idol Name">
+      <select class="form-control" [(ngModel)]="Group" >
+        <option>--Select--</option>
+        <option *ngFor="let groupName of GroupsList">
+          {{groupName.GroupName}}
+        </option>
+      </select>
     </div>
 
   </div>
