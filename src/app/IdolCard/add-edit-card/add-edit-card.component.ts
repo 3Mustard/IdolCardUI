@@ -41,13 +41,12 @@ export class AddEditCardComponent implements OnInit {
   }
 
   addCard(): void {
-    let today = new Date().toISOString().slice(0, 10);
 
     const cardData = {
       IdolName: this.IdolName,
       IdolGroup: this.Group,
       PhotoCardSet: this.PhotoCardSet,
-      DateAdded: today,
+      DateAdded: this.todaysDate,
       PhotoFileName: this.PhotoFileName
     };
 
@@ -83,4 +82,7 @@ export class AddEditCardComponent implements OnInit {
     });
   }
 
+  todaysDate(): string {
+    return new Date().toISOString().slice(0, 10);
+  }
 }

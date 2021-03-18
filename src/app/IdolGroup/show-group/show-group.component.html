@@ -13,7 +13,9 @@ data-backdrop="static" data-keyboard="false"
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <!-- Modal Title -->
         <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <!-- Close Modal Button -->
         <button type="button" class="close" 
         data-dismiss="modal" aria-label="Close"
         (click)="closeClick()"
@@ -21,27 +23,49 @@ data-backdrop="static" data-keyboard="false"
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <!-- Modal Body -->
       <div class="modal-body">
+        <!-- ADD-EDIT-GROUP Component -->
         <app-add-edit-group [group]="group" *ngIf="ActivateAddEditGroupComp">
         </app-add-edit-group>
       </div>
     </div>
   </div>
 </div>
-
+<!-- Table of Groups -->
 <table class="table table-striped">
+  <!-- Table Head -->
   <thead>
     <tr>
-      <th>GroupID</th>
-      <th>Group Name</th>
+      <th>
+        <!-- Filter by ID -->
+        <!-- <div class="d-flex flex-row">
+          <input [(ngModel)]="GroupIdFilter" class="form-control"
+          (keyup)="filterGroups()" placeholder="Filter">
+        </div> -->
+
+        GroupID
+      </th>
+      <th>
+        <!-- Filter by Name -->
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="GroupNameFilter" class="form-control"
+          (keyup)="filterGroups()" placeholder="Filter">
+        </div>
+
+        Group Name
+      </th>
       <th>Options</th>
     </tr>
   </thead>
+  <!-- Table Body -->
   <tbody>
+    <!-- For loop to display all Groups -->
     <tr *ngFor="let groupInfo of GroupList">
       <td>{{groupInfo.GroupId}}</td>
       <td>{{groupInfo.GroupName}}</td>
       <td>
+        <!-- Edit Group button -->
         <button type="button" class="btn btn-light mr-1"
         data-toggle="modal" data-target="#exampleModal"
         (click)="editClick(groupInfo)"
@@ -49,6 +73,7 @@ data-backdrop="static" data-keyboard="false"
         >
           Edit
         </button>
+        <!-- Delete Group Button -->
         <button type="button" class="btn btn-light mr-1"
         (click)="deleteClick(groupInfo.GroupId)"
         >

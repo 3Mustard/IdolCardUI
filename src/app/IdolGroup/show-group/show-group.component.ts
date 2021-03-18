@@ -16,6 +16,10 @@ export class ShowGroupComponent implements OnInit {
   ActivateAddEditGroupComp: boolean = false;
   group:any;
 
+  GroupIdFilter: string = "";
+  GroupNameFilter: string = "";
+  GroupListNoFilter: any = [];
+
   ngOnInit(): void {
     this.refreshGroupList();
   }
@@ -52,7 +56,21 @@ export class ShowGroupComponent implements OnInit {
   refreshGroupList(): void {
     this.service.getIdolGroupList().subscribe(data => {
       this.GroupList = data;
+      this.GroupListNoFilter = data;
     });
   }
 
+  filterGroups(){
+    let GroupIdFilter = this.GroupIdFilter;
+    let GroupNameFilter = this.GroupNameFilter;
+
+    this.GroupList = this.GroupListNoFilter.filter(group => {
+      return group.GroupId.toString().toLowerCase().includes(
+        GroupIdFilter.toString().trim().toLowerCase()
+      )&&
+      group.GroupName.toString().toLowerCase().includes(
+        GroupNameFilter.toString().trim().toLowerCase()
+      )
+    });
+  }
 }
