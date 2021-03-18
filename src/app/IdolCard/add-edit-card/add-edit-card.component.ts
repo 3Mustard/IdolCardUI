@@ -18,6 +18,7 @@ export class AddEditCardComponent implements OnInit {
   DateAdded:string;
   PhotoFileName:string;
   PhotoFilePath:string;
+  Group:string;
 
   GroupsList:any=[];
 
@@ -40,11 +41,13 @@ export class AddEditCardComponent implements OnInit {
   }
 
   addCard(): void {
+    let today = new Date().toISOString().slice(0, 10);
+
     const cardData = {
       IdolName: this.IdolName,
-      IdolGroup: this.IdolGroup,
+      IdolGroup: this.Group,
       PhotoCardSet: this.PhotoCardSet,
-      DateAdded: this.DateAdded,
+      DateAdded: today,
       PhotoFileName: this.PhotoFileName
     };
 
@@ -54,12 +57,14 @@ export class AddEditCardComponent implements OnInit {
   }
 
   updateCard(): void {
+
     const cardData = {
       IdolName: this.IdolName,
-      IdolGroup: this.IdolGroup,
+      IdolGroup: this.Group ? this.Group : this.IdolGroup,
       PhotoCardSet: this.PhotoCardSet,
       DateAdded: this.DateAdded,
-      PhotoFileName: this.PhotoFileName
+      PhotoFileName: this.PhotoFileName,
+      IdolId: this.IdolId
     };
 
     this.service.updateIdolCard(cardData).subscribe(res => {
