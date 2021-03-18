@@ -24,7 +24,7 @@ export class SharedService {
   }
 
   deleteIdolGroup(val:any){
-    return this.http.delete(this.APIUrl+'/IdolGroup/'+val,val);
+    return this.http.delete(this.APIUrl+'/IdolGroup/'+val, val);
   }
 
   getIdolCardList():Observable<any[]>{
@@ -40,12 +40,12 @@ export class SharedService {
   }
 
   deleteIdolCard(val:any){
-    return this.http.delete(this.APIUrl+'/IdolCard/'+val,val);
+    return this.http.delete(this.APIUrl+'/IdolCard/'+val, val);
   }
 
   UploadPhoto(val:any)
   {
-    return this.http.post(this.APIUrl+'/IdolCard/SaveFile',val);
+    return this.http.post(this.APIUrl+'/IdolCard/SaveFile', val);
   }
 
   getAllGroupNames():Observable<any[]>{
