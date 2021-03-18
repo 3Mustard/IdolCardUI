@@ -1,0 +1,33 @@
+<!-- form container -->
+<div class="d-flex flex-row bd-highlight mb-3">
+  <!-- form start -->
+  <div class="form-group row" style="width: 60%;">
+    <!-- form input 1 -->
+    <label class="col-sm-2 col-form-label">Idol Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="IdolName" placeholder="Enter Idol Name">
+    </div>
+    <!-- form input 2 -->
+    <label class="col-sm-2 col-form-label">Idol Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="IdolName" placeholder="Enter Idol Name">
+    </div>
+
+  </div>
+  <!-- file upload -->
+  <div class="ml-3 bd-highlight" style="width: 40%;">
+    <img [src]="PhotoFilePath" height="250px;" width="200px;" alt="Photo Card Photo">
+    <input type="file" (change)="uploadPhoto($event)" class="mt-2" />
+  </div>
+  <!-- form end -->
+
+</div>
+
+<!-- Add/Update buttons -->
+<button (click)="addGroup()" *ngIf="group.GroupId==0" class="btn btn-primary">
+  Add
+</button>
+
+<button (click)="updateGroup()" *ngIf="group.GroupId!=0" class="btn btn-primary">
+  Update
+</button>
